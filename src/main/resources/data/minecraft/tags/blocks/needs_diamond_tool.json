@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "testmod:outland_block",
+    "testmod:outland_ore"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "itemGroup.testmod.general": "Outland Items",
+  "item.testmod.outland_ingot": "Outland Ingot",
+  "item.testmod.outland_shard": "Outland Shard",
+
+  "item.testmod.outland_sword": "§3§oOutland Sword",
+  "item.testmod.outland_axe": "§3§oOutland Axe",
+  "item.testmod.outland_battleaxe": "§3§oOutland Battle Axe",
+  "item.testmod.outland_pickaxe": "§3§oOutland Pickaxe",
+
+  "block.testmod.outland_block": "§3Outland Block",
+  "block.testmod.outland_ore": "Outland Ore"
+}
