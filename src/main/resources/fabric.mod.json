@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "testmod",
+  "id": "outlands",
   "version": "${version}",
 
-  "name": "Testing mod",
-  "description": "Testing mod, weeooo!",
+  "name": "The Outlands",
+  "description": "Adds a new set of armor to the game, features a new outland boss, as well as a new biome!",
   "authors": [
     "Zqnqx"
   ],
@@ -14,16 +14,19 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/testmod/icon.png",
+  "icon": "assets/outlands/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.test.Main"
+      "net.fabricmc.outlands.Main"
+    ],
+    "client": [
+      "net.fabricmc.outlands.ModClient"
     ]
   },
   "mixins": [
-    "testmod.mixins.json"
+    "outlands.mixins.json"
   ],
 
   "depends": {

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:netherite_chestplate"
+  },
+  "addition": {
+    "item": "outlands:outland_ingot"
+  },
+  "result": {
+    "item": "outlands:outland_chestplate"
+  }
+}

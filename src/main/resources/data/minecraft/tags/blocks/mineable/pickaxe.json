@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "testmod:outland_ore",
-    "testmod:outland_block"
+    "outlands:outland_ore",
+    "outlands:outland_block"
   ]
 }

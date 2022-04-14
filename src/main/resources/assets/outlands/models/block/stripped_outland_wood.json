@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "outlands:block/stripped_outland_log",
+    "side": "outlands:block/stripped_outland_log"
+  }
+}

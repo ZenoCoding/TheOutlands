@@ -1,0 +1,63 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.outland_inquisitor",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 1.75, 0]
+			},
+			"bones": [
+				{
+					"name": "head",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4, 40, -4], "size": [8, 11, 8], "inflate": -0.5, "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "Body",
+					"pivot": [0, 38, 0],
+					"cubes": [
+						{"origin": [-4, 26, -2], "size": [8, 12, 4], "uv": [32, 0]}
+					]
+				},
+				{
+					"name": "RightArm",
+					"pivot": [-3, 36, 0],
+					"cubes": [
+						{"origin": [-12, 8, -2], "size": [4, 15, 4], "uv": [32, 40]},
+						{"origin": [-13, 23, -3], "size": [6, 15, 6], "uv": [24, 19]}
+					]
+				},
+				{
+					"name": "LeftArm",
+					"pivot": [5, 36, 0],
+					"mirror": true,
+					"cubes": [
+						{"origin": [8, 8, -2], "size": [4, 15, 4], "uv": [16, 40], "mirror": false},
+						{"origin": [7, 23, -3], "size": [6, 15, 6], "uv": [0, 19], "mirror": false}
+					]
+				},
+				{
+					"name": "RightLeg",
+					"pivot": [-2, 26, 0],
+					"cubes": [
+						{"origin": [-3, 0, -1], "size": [2, 26, 2], "uv": [8, 40]}
+					]
+				},
+				{
+					"name": "LeftLeg",
+					"pivot": [2, 26, 0],
+					"mirror": true,
+					"cubes": [
+						{"origin": [1, 0, -1], "size": [2, 26, 2], "uv": [0, 40], "mirror": false}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,34 @@
+{
+  "itemGroup.outlands.general": "Outland Items",
+  "item.outlands.outland_ingot": "Outland Ingot",
+  "item.outlands.outland_shard": "Outland Shard",
+  "item.outlands.netherite_handle": "Netherite Handle",
+
+  "item.outlands.outland_sword": "§3§oOutland Sword",
+  "item.outlands.outland_axe": "§3§oOutland Axe",
+  "item.outlands.outland_battleaxe": "§3§oOutland Battle Axe",
+  "item.outlands.outland_pickaxe": "§3§oOutland Pickaxe",
+
+  "item.outlands.outland_sword_blade": "§3Outland Sword Blade",
+  "item.outlands.outland_sword_hilt": "§3Outland Sword Hilt",
+  "item.outlands.outland_axe_head": "§3Outland Axe Head",
+  "item.outlands.outland_battleaxe_head": "§3Outland Battle Axe Head",
+  "item.outlands.outland_pickaxe_head": "§3Outland Pickaxe Head",
+  "item.outlands.outland_bow": "§3Outland Bow",
+
+  "item.outlands.outland_helmet": "§3Outland Helmet",
+  "item.outlands.outland_chestplate": "§3Outland Chestplate",
+  "item.outlands.outland_leggings": "§3Outland Leggings",
+  "item.outlands.outland_boots": "§3Outland Boots",
+
+  "block.outlands.outland_block": "§3Outland Block",
+  "block.outlands.outland_ore": "Outland Ore",
+
+  "block.outlands.outland_log": "Outland Log",
+  "block.outlands.outland_wood": "Outland Wood",
+  "block.outlands.stripped_outland_log": "Stripped Outland Log",
+  "block.outlands.stripped_outland_wood": "Stripped Outland Wood",
+  "block.outlands.outland_planks": "Outland Planks",
+
+  "entity.outlands.outland_inquisitor": "Outland Inquisitor"
+}
