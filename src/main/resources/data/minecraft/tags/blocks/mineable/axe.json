@@ -1,5 +1,10 @@
 {
   "replace": false,
   "values": [
+    "outlands:olyum_log",
+    "outlands:olyum_wood",
+    "outlands:stripped_olyum_log",
+    "outlands:stripped_olyum_wood",
+    "outlands:outland_planks"
   ]
 }

@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.outlands.Main;
 import net.fabricmc.outlands.item.custom.ModAxeItem;
+import net.fabricmc.outlands.item.custom.ModBowItem;
 import net.fabricmc.outlands.item.custom.ModPickaxeItem;
 import net.fabricmc.outlands.item.custom.OutlandIngot;
 import net.minecraft.entity.EquipmentSlot;
@@ -44,7 +45,7 @@ public class ModItems {
                     new FabricItemSettings().group(ModItems.OUTLAND_ITEM_GROUP)));
 
     public static final Item OUTLAND_BOW = registerItem("outland_bow",
-            new BowItem(new FabricItemSettings().group(ModItems.OUTLAND_ITEM_GROUP).maxDamage(1000)));
+            new ModBowItem(new FabricItemSettings().group(ModItems.OUTLAND_ITEM_GROUP).maxDamage(3000)));
 
     // Tool Heads
     public static final Item OUTLAND_SWORD_BLADE = registerItem("outland_sword_blade",

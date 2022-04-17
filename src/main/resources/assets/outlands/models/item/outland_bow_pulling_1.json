@@ -1,0 +1,6 @@
+{
+  "parent": "outlands:item/outland_bow",
+  "textures": {
+    "layer0": "outlands:item/outland_bow_pulling_1"
+  }
+}

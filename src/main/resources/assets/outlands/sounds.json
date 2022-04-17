@@ -1,0 +1,14 @@
+{
+  "energy_beam_charge": {
+    "subtitle": "outlands.energy_beam_charge",
+    "sounds": [
+      "outlands:energy_beam_charge"
+    ]
+  },
+  "energy_beam_fire": {
+    "subtitle": "outlands.energy_beam_fire",
+    "sounds": [
+      "outlands:energy_beam_fire"
+    ]
+  }
+}

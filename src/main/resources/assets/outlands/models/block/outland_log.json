@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "outlands:block/outland_log_top",
-    "side": "outlands:block/outland_log"
-  }
-}

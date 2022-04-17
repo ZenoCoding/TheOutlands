@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "outlands:block/olyum_log",
+    "side": "outlands:block/olyum_log"
+  }
+}
