@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "outlands:block/outland_planks"
+    "all": "outlands:block/olyum_planks"
   }
 }

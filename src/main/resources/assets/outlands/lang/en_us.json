@@ -28,11 +28,14 @@
   "block.outlands.olyum_wood": "Olyum Wood",
   "block.outlands.stripped_olyum_log": "Stripped Olyum Log",
   "block.outlands.stripped_olyum_wood": "Stripped Olyum Wood",
-  "block.outlands.outland_planks": "Olyum Planks",
+  "block.outlands.olyum_planks": "Olyum Planks",
 
   "block.outlands.olyum_leaves": "Olyum Leaves",
   "block.outlands.olyum_sapling": "Olyum Sapling",
   "block.outlands.olyum_shrub": "Olyum Shrub",
+
+  "block.outlands.olcrium": "Olcrium",
+  "block.outlands.olyum_olcrium": "Olyum Olcrium",
 
   "entity.outlands.outland_inquisitor": "Outland Inquisitor",
 

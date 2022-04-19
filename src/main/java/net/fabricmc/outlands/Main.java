@@ -5,11 +5,15 @@ import net.fabricmc.outlands.block.ModBlocks;
 import net.fabricmc.outlands.entity.ModEntities;
 import net.fabricmc.outlands.item.ModItems;
 import net.fabricmc.outlands.util.ModRegistries;
+import net.fabricmc.outlands.world.biome.ModBiomes;
 import net.fabricmc.outlands.world.feature.ModConfiguredFeatures;
 import net.fabricmc.outlands.world.gen.ModWorldGen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.bernie.geckolib3.GeckoLib;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
+import terrablender.api.TerraBlenderApi;
 
 import java.util.Random;
 
@@ -38,8 +42,11 @@ public class Main implements ModInitializer {
 		ModConfiguredFeatures.registerConfiguredFeatures();
 
 		ModWorldGen.generateModWorldGen();
+		ModBiomes.registerBiomes();
 		// ModParticles.registerParticles();
 
 
 	}
+
+
 }

@@ -1,5 +1,7 @@
 {
   "replace": false,
   "values": [
+    "outlands:olcrium",
+    "outlands:olyum_olcrium"
   ]
 }

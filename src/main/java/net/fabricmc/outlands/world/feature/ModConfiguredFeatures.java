@@ -2,6 +2,7 @@ package net.fabricmc.outlands.world.feature;
 
 import net.fabricmc.outlands.Main;
 import net.fabricmc.outlands.block.ModBlocks;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.feature.*;
@@ -30,6 +31,10 @@ public class ModConfiguredFeatures {
             ConfiguredFeatures.register("outland_tree_spawn", Feature.RANDOM_SELECTOR,
                     new RandomFeatureConfig(List.of(new RandomFeatureEntry(OUTLAND_TREE_CHECKED, 0.5f)),
                             OUTLAND_TREE_CHECKED));
+
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PATCH_OLYUM_SHRUB =
+            ConfiguredFeatures.register("patch_olyum_shrub", Feature.RANDOM_PATCH,
+                    ConfiguredFeatures.createRandomPatchFeatureConfig(32, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.OLYUM_SHRUB)))));
 
     public static void registerConfiguredFeatures(){
         Main.LOGGER.info("Registering ModConfiguredFeatures for " + Main.MOD_ID);

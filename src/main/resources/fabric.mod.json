@@ -23,6 +23,9 @@
     ],
     "client": [
       "net.fabricmc.outlands.ModClient"
+    ],
+    "terrablender": [
+      "net.fabricmc.outlands.TerraBlenderInit"
     ]
   },
   "mixins": [
