@@ -13,6 +13,6 @@ public class OutlandSaplingGenerator extends SaplingGenerator {
     @Nullable
     @Override
     protected RegistryEntry<? extends ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
-        return ModConfiguredFeatures.OUTLAND_TREE;
+        return ModConfiguredFeatures.OLYUM_TREE;
     }
 }

@@ -1,9 +1,11 @@
 package net.fabricmc.outlands.util;
 
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.outlands.EntityDamagedCallback;
 import net.fabricmc.outlands.Main;
 import net.fabricmc.outlands.block.ModBlocks;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
@@ -41,5 +43,9 @@ public class ModRegistries {
     public static void registerFlammableBlocks(){
         FlammableBlockRegistry instance = FlammableBlockRegistry.getDefaultInstance();
         instance.add(ModBlocks.OLYUM_LEAVES, 2, 2);
+    }
+
+    public static void registerRenderLayers(){
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.OLYUM_SHRUB);
     }
 }

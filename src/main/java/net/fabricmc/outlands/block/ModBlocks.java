@@ -3,7 +3,8 @@ package net.fabricmc.outlands.block;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.outlands.Main;
-import net.fabricmc.outlands.block.custom.ModSaplingBlock;
+import net.fabricmc.outlands.block.custom.OlyumPlantBlock;
+import net.fabricmc.outlands.block.custom.OlyumSaplingBlock;
 import net.fabricmc.outlands.block.custom.OlcriumBlock;
 import net.fabricmc.outlands.item.ModItems;
 import net.fabricmc.outlands.world.feature.tree.OutlandSaplingGenerator;
@@ -22,9 +23,9 @@ public class ModBlocks {
     public static final Block OUTLAND_ORE = registerBlock("outland_ore",
             new Block(FabricBlockSettings.of(Material.METAL).strength(10f).requiresTool()), ModItems.OUTLAND_ITEM_GROUP);
 
-    public static final Block OUTLAND_LOG = registerBlock("olyum_log",
+    public static final Block OLYUM_LOG = registerBlock("olyum_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).strength(6f).requiresTool()), ModItems.OUTLAND_ITEM_GROUP);
-    public static final Block OUTLAND_WOOD = registerBlock("olyum_wood",
+    public static final Block OLYUM_WOOD = registerBlock("olyum_wood",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD).strength(6f).requiresTool()), ModItems.OUTLAND_ITEM_GROUP);
     public static final Block STRIPPED_OLYUM_LOG = registerBlock("stripped_olyum_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG).strength(6f).requiresTool()), ModItems.OUTLAND_ITEM_GROUP);
@@ -38,10 +39,10 @@ public class ModBlocks {
             new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).nonOpaque()), ModItems.OUTLAND_ITEM_GROUP);
 
     public static final Block OLYUM_SAPLING = registerBlock("olyum_sapling",
-            new ModSaplingBlock(new OutlandSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)), ModItems.OUTLAND_ITEM_GROUP);
+            new OlyumSaplingBlock(new OutlandSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)), ModItems.OUTLAND_ITEM_GROUP);
 
     public static final Block OLYUM_SHRUB = registerBlock("olyum_shrub",
-            new Block(FabricBlockSettings.copy(Blocks.GRASS).nonOpaque()), ModItems.OUTLAND_ITEM_GROUP);
+            new OlyumPlantBlock(FabricBlockSettings.copy(Blocks.GRASS)), ModItems.OUTLAND_ITEM_GROUP);
 
     public static final Block OLCRIUM = registerBlock("olcrium",
             new Block(FabricBlockSettings.copy(Blocks.DIRT).strength(1f).requiresTool()), ModItems.OUTLAND_ITEM_GROUP);

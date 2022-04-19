@@ -1,5 +1,6 @@
 package net.fabricmc.outlands.world.biome;
 
+import net.fabricmc.outlands.entity.ModEntities;
 import net.fabricmc.outlands.world.feature.ModBiomeFeatures;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
@@ -46,7 +47,7 @@ public class ModOverworldBiomes
     public static Biome outlands()
     {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addDesertMobs(spawnBuilder);
+        spawnBuilder.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(ModEntities.OUTLAND_INQUISITOR, 5, 1, 1));
 
         GenerationSettings.Builder biomeBuilder = new GenerationSettings.Builder();
         globalOverworldGeneration(biomeBuilder);

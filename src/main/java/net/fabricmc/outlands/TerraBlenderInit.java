@@ -12,7 +12,7 @@ public class TerraBlenderInit implements TerraBlenderApi {
     public void onTerraBlenderInitialized()
     {
         // Given we only add two biomes, we should keep our weight relatively low.
-        Regions.register(new ModRegion(new Identifier(Main.MOD_ID, "overworld"), 2));
+        Regions.register(new ModRegion(new Identifier(Main.MOD_ID, "overworld"), 20));
 
         // Register our surface rules
         SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, Main.MOD_ID, ModSurfaceRuleData.makeRules());

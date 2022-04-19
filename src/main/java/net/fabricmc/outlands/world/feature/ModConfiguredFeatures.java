@@ -2,7 +2,6 @@ package net.fabricmc.outlands.world.feature;
 
 import net.fabricmc.outlands.Main;
 import net.fabricmc.outlands.block.ModBlocks;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.feature.*;
@@ -15,22 +14,22 @@ import java.util.List;
 
 public class ModConfiguredFeatures {
 
-    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> OUTLAND_TREE =
-            ConfiguredFeatures.register("outland_tree", Feature.TREE, new TreeFeatureConfig.Builder(
-                    BlockStateProvider.of(ModBlocks.OUTLAND_LOG),
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> OLYUM_TREE =
+            ConfiguredFeatures.register("olyum_tree", Feature.TREE, new TreeFeatureConfig.Builder(
+                    BlockStateProvider.of(ModBlocks.OLYUM_LOG),
                     new LargeOakTrunkPlacer(5, 10, 3),
                     BlockStateProvider.of(ModBlocks.OLYUM_LEAVES),
                     new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 6),
                     new TwoLayersFeatureSize(1, 0, 2)).build());
 
-    public static final RegistryEntry<PlacedFeature> OUTLAND_TREE_CHECKED =
-            PlacedFeatures.register("outland_tree_checked", OUTLAND_TREE,
+    public static final RegistryEntry<PlacedFeature> OLYUM_TREE_CHECKED =
+            PlacedFeatures.register("olyum_tree_checked", OLYUM_TREE,
                     PlacedFeatures.wouldSurvive(ModBlocks.OLYUM_SAPLING));
 
-    public static final RegistryEntry<ConfiguredFeature<RandomFeatureConfig, ?>> OUTLAND_TREE_SPAWN =
-            ConfiguredFeatures.register("outland_tree_spawn", Feature.RANDOM_SELECTOR,
-                    new RandomFeatureConfig(List.of(new RandomFeatureEntry(OUTLAND_TREE_CHECKED, 0.5f)),
-                            OUTLAND_TREE_CHECKED));
+    public static final RegistryEntry<ConfiguredFeature<RandomFeatureConfig, ?>> OLYUM_TREE_SPAWN =
+            ConfiguredFeatures.register("olyum_tree_spawn", Feature.RANDOM_SELECTOR,
+                    new RandomFeatureConfig(List.of(new RandomFeatureEntry(OLYUM_TREE_CHECKED, 0.5f)),
+                            OLYUM_TREE_CHECKED));
 
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PATCH_OLYUM_SHRUB =
             ConfiguredFeatures.register("patch_olyum_shrub", Feature.RANDOM_PATCH,

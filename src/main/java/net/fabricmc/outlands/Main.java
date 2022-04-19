@@ -36,13 +36,16 @@ public class Main implements ModInitializer {
 
 		ModItems.registerItems();
 		ModBlocks.registerModBlocks();
+
 		ModEntities.registerEntities();
+
 		ModRegistries.registerEvents();
 		ModRegistries.registerFlammableBlocks();
-		ModConfiguredFeatures.registerConfiguredFeatures();
+		ModRegistries.registerRenderLayers();
 
-		ModWorldGen.generateModWorldGen();
+		ModConfiguredFeatures.registerConfiguredFeatures();
 		ModBiomes.registerBiomes();
+		ModWorldGen.generateModWorldGen();
 		// ModParticles.registerParticles();
 
 

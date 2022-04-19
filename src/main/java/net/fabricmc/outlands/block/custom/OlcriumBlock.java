@@ -3,6 +3,7 @@ package net.fabricmc.outlands.block.custom;
 import java.util.Random;
 
 import net.fabricmc.outlands.block.ModBlocks;
+import net.fabricmc.outlands.world.feature.ModConfiguredFeatures;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -16,6 +17,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.NetherConfiguredFeatures;
 
 public class OlcriumBlock
@@ -51,7 +53,9 @@ public class OlcriumBlock
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        return;
+        BlockPos blockPos = pos.up();
+        ChunkGenerator chunkGenerator = world.getChunkManager().getChunkGenerator();
+        ModConfiguredFeatures.PATCH_OLYUM_SHRUB.value().generate(world, chunkGenerator, random, blockPos);
     }
 }
 
