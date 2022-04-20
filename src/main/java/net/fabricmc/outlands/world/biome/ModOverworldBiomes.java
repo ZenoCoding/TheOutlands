@@ -53,7 +53,8 @@ public class ModOverworldBiomes
         globalOverworldGeneration(biomeBuilder);
         DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
         DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
-        ModBiomeFeatures.addOutlandsFeatures(biomeBuilder);
+        ModBiomeFeatures.addOlyumVegetation(biomeBuilder);
+        ModBiomeFeatures.addOlyumTrees(biomeBuilder);
         return biome(Biome.Precipitation.NONE, Biome.Category.DESERT, 2.0F, 0.0F, spawnBuilder, biomeBuilder, NORMAL_MusicSound);
     }
 
