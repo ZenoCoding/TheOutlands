@@ -1,10 +1,7 @@
 package me.zenox.outlands.block;
 
 import me.zenox.outlands.Main;
-import me.zenox.outlands.block.custom.OlcriumBlock;
-import me.zenox.outlands.block.custom.OlyumFungusBlock;
-import me.zenox.outlands.block.custom.OlyumPlantBlock;
-import me.zenox.outlands.block.custom.OlyumSaplingBlock;
+import me.zenox.outlands.block.custom.*;
 import me.zenox.outlands.world.feature.ModConfiguredFeatures;
 import me.zenox.outlands.world.feature.tree.OutlandSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -46,7 +43,7 @@ public class ModBlocks {
     public static final Block OLYUM_SHRUB = registerBlock("olyum_shrub",
             new OlyumPlantBlock(FabricBlockSettings.copy(Blocks.GRASS)), ModItems.OUTLAND_ITEM_GROUP);
 
-    public static final Block OLYUM_FUNGI = registerBlock("olyum_fungi",
+    public static final Block OLYUM_SPROUTS = registerBlock("olyum_sprouts",
             new OlyumFungusBlock(FabricBlockSettings.copy(Blocks.WARPED_FUNGUS), () -> ModConfiguredFeatures.OLYUM_FUNGI, () -> ModConfiguredFeatures.PATCH_OLYUM_SHRUB),
             ModItems.OUTLAND_ITEM_GROUP);
 
@@ -55,6 +52,9 @@ public class ModBlocks {
 
     public static final Block OLYUM_OLCRIUM = registerBlock("olyum_olcrium",
             new OlcriumBlock(FabricBlockSettings.copy(Blocks.GRASS_BLOCK).strength(1f).requiresTool()), ModItems.OUTLAND_ITEM_GROUP);
+
+    public static final Block OLYUM_FUNGI_CAP = registerBlock("olyum_fungi_cap",
+            new JellyBlock(FabricBlockSettings.copy(Blocks.SLIME_BLOCK)), ModItems.OUTLAND_ITEM_GROUP);
 
 
     private static Block registerBlock(String name, Block block, ItemGroup group){

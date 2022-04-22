@@ -46,6 +46,7 @@ public class ModRegistries {
 
     public static void registerRenderLayers(){
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.OLYUM_SHRUB);
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.OLYUM_FUNGI);
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.OLYUM_SPROUTS);
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(), ModBlocks.OLYUM_FUNGI_CAP);
     }
 }

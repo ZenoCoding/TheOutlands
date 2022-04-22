@@ -117,7 +117,6 @@ public class SplineHelper {
             if (!(fillLine(startPos, endPos, world, state, pos, replace))) {
                 return false;
             }
-            Main.LOGGER.info("Attempted to generate Spline at:" + startPos + endPos);
             startPos = endPos;
         }
 

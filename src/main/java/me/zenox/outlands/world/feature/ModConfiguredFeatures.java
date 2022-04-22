@@ -40,9 +40,9 @@ public class ModConfiguredFeatures {
             ConfiguredFeatures.register("patch_olyum_shrub", Feature.RANDOM_PATCH,
                     ConfiguredFeatures.createRandomPatchFeatureConfig(32, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.OLYUM_SHRUB)))));
 
-    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PATCH_OLYUM_FUNGI =
-            ConfiguredFeatures.register("patch_olyum_fungi", Feature.RANDOM_PATCH,
-                    ConfiguredFeatures.createRandomPatchFeatureConfig(32, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.OLYUM_FUNGI)))));
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PATCH_OLYUM_SPROUTS =
+            ConfiguredFeatures.register("patch_olyum_sprouts", Feature.RANDOM_PATCH,
+                    ConfiguredFeatures.createRandomPatchFeatureConfig(32, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.OLYUM_SPROUTS)))));
 
     public static void registerConfiguredFeatures(){
         Main.LOGGER.info("Registering ModConfiguredFeatures for " + Main.MOD_ID);

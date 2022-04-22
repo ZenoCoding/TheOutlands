@@ -24,15 +24,7 @@ public class ModOverworldBiomes
         return MathHelper.hsvToRgb(0.62222224F - $$1 * 0.05F, 0.5F + $$1 * 0.1F, 1.0F);
     }
 
-    private static Biome biome(Biome.Precipitation precipitation, Biome.Category category, float temperature, float downfall, SpawnSettings.Builder spawnBuilder, GenerationSettings.Builder biomeBuilder, @Nullable MusicSound MusicSound)
-    {
-        return biome(precipitation, category, temperature, downfall, 4159204, 329011, spawnBuilder, biomeBuilder, MusicSound);
-    }
 
-    private static Biome biome(Biome.Precipitation precipitation, Biome.Category category, float temperature, float downfall, int waterColor, int waterFogColor, SpawnSettings.Builder spawnBuilder, GenerationSettings.Builder biomeBuilder, @Nullable MusicSound MusicSound)
-    {
-        return (new Biome.Builder()).precipitation(precipitation).category(category).temperature(temperature).downfall(downfall).effects((new BiomeEffects.Builder()).waterColor(waterColor).waterFogColor(waterFogColor).fogColor(12638463).skyColor(calculateSkyColor(temperature)).moodSound(BiomeMoodSound.CAVE).music(MusicSound).build()).spawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
-    }
 
     private static void globalOverworldGeneration(GenerationSettings.Builder builder)
     {
@@ -55,22 +47,8 @@ public class ModOverworldBiomes
         DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
         ModBiomeFeatures.addOlyumVegetation(biomeBuilder);
         ModBiomeFeatures.addOlyumTrees(biomeBuilder);
-        return biome(Biome.Precipitation.NONE, Biome.Category.JUNGLE, 2.0F, 0.0F, spawnBuilder, biomeBuilder, NORMAL_MusicSound);
+        return new Biome.Builder().precipitation(Biome.Precipitation.NONE).category(Biome.Category.JUNGLE).temperature(-1F).downfall(2f).effects((new BiomeEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(0xA080A0).skyColor(0).moodSound(BiomeMoodSound.CAVE).build()).spawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome coldBlue()
-    {
-        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.GOAT, 5, 1, 3));
-        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
 
-        GenerationSettings.Builder biomeBuilder = new GenerationSettings.Builder();
-        globalOverworldGeneration(biomeBuilder);
-        DefaultBiomeFeatures.addFrozenLavaSpring(biomeBuilder);
-        DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
-        DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
-        DefaultBiomeFeatures.addEmeraldOre(biomeBuilder);
-        DefaultBiomeFeatures.addInfestedStone(biomeBuilder);
-        return biome(Biome.Precipitation.SNOW, Biome.Category.MOUNTAIN, -0.7F, 0.9F, spawnBuilder, biomeBuilder, NORMAL_MusicSound);
-    }
 }

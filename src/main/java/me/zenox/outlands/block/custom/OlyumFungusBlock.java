@@ -14,8 +14,8 @@ import java.util.Random;
 import java.util.function.Supplier;
 
 public class OlyumFungusBlock extends OlyumPlantBlock implements Fertilizable{
-    protected static final VoxelShape SHAPE = createCuboidShape(4.0, 0.0, 4.0, 12.0, 9.0, 12.0);
-    private static final double GROW_CHANCE = 0.4;
+    protected static final VoxelShape SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 9.0D, 14.0D);
+    private static final double GROW_CHANCE = 0.05;
     private final Supplier<RegistryEntry<ConfiguredFeature<DefaultFeatureConfig, ?>>> feature;
     private final Supplier<RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>>> feature2;
 
