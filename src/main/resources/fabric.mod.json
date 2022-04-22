@@ -19,13 +19,13 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.outlands.Main"
+      "me.zenox.outlands.Main"
     ],
     "client": [
-      "net.fabricmc.outlands.ModClient"
+      "me.zenox.outlands.ModClient"
     ],
     "terrablender": [
-      "net.fabricmc.outlands.TerraBlenderInit"
+      "me.zenox.outlands.TerraBlenderInit"
     ]
   },
   "mixins": [

@@ -1,13 +1,10 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.fabricmc.outlands.mixin",
+  "package": "me.zenox.outlands.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "DamageMixin"
-  ],
-  "client": [
-    "TestMixin"
   ],
   "injectors": {
     "defaultRequire": 1
