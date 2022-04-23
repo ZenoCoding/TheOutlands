@@ -47,7 +47,7 @@ public class ModOverworldBiomes
         DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
         ModBiomeFeatures.addOlyumVegetation(biomeBuilder);
         ModBiomeFeatures.addOlyumTrees(biomeBuilder);
-        return new Biome.Builder().precipitation(Biome.Precipitation.NONE).category(Biome.Category.JUNGLE).temperature(-1F).downfall(2f).effects((new BiomeEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(0xA080A0).skyColor(0).moodSound(BiomeMoodSound.CAVE).build()).spawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
+        return new Biome.Builder().precipitation(Biome.Precipitation.NONE).category(Biome.Category.JUNGLE).temperature(2F).downfall(2f).effects((new BiomeEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(0x423961).skyColor(0).moodSound(BiomeMoodSound.CAVE).build()).spawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
 

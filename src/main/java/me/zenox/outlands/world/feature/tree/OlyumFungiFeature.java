@@ -47,7 +47,7 @@ public class OlyumFungiFeature extends Feature<DefaultFeatureConfig> {
         SplineHelper.offset(ROOT, new Vec3f(0, -0.45F, 0));
 
         REPLACE = (state) -> {
-            if (state.getMaterial().equals(Material.PLANT) || state.getBlock().equals(ModBlocks.OLYUM_FUNGI_CAP)) {
+            if (state.getMaterial().equals(Material.PLANT) || state.equals(ModBlocks.OLYUM_FUNGI_CAP.getDefaultState())) {
                 return true;
             }
             return state.getMaterial().isReplaceable();
@@ -57,8 +57,6 @@ public class OlyumFungiFeature extends Feature<DefaultFeatureConfig> {
     @Override
     public boolean generate(FeatureContext<DefaultFeatureConfig> context) {
         BlockPos blockPos = context.getOrigin();
-
-
 
         // Random Instance
         Random random = context.getRandom();
@@ -71,23 +69,21 @@ public class OlyumFungiFeature extends Feature<DefaultFeatureConfig> {
             radius = 1.5F;
         }
 
-        Main.LOGGER.info("Attempted to Generate Olyum Fungi Structure at " + blockPos.toShortString() + "With Height/Radius of " + height + "/" + radius);
-
         //If the block is in the air, move it down a block (Unless you are below 2 blocks from the bottom of the world)
         while (world.isAir(blockPos) && blockPos.getY() > world.getBottomY() + 2) {
             blockPos = blockPos.down();
         }
         // The block it is generating on must be a valid block
-//        if (!world.getBlockState(blockPos).isOf(ModBlocks.OLYUM_OLCRIUM)) {
-//            return false;
-//        }
+        if (!(world.getBlockState(blockPos.down()).isOf(ModBlocks.OLYUM_OLCRIUM) || world.getBlockState(blockPos.down()).isOf(ModBlocks.OLCRIUM))) {
+            return false;
+        }
 
         // Generation
 
         // Trunk
         makeTrunk(world, blockPos.add(0, 5, 0), radius, random, ModBlocks.OLYUM_LOG.getDefaultState());
-        makeCap(world, blockPos.add(0, height/3+5, 0), radius, random, ModBlocks.OLYUM_FUNGI_CAP.getDefaultState());
-        makeSpokes(world, blockPos.add(0, height/3+3, 0), radius, random, ModBlocks.OLCRIUM.getDefaultState());
+        makeCap(world, blockPos.add(0, 4, 0), radius, random, ModBlocks.OLYUM_FUNGI_CAP.getDefaultState());
+        makeSpokes(world, blockPos.add(0, 3, 0), radius, random, ModBlocks.OLCRIUM.getDefaultState());
 
         // Cap (Leaves)
 
@@ -95,7 +91,7 @@ public class OlyumFungiFeature extends Feature<DefaultFeatureConfig> {
         return true;
     }
 
-    private void makeTrunk(StructureWorldAccess world, BlockPos pos, float radius, Random random, BlockState wood) {
+    protected void makeTrunk(StructureWorldAccess world, BlockPos pos, float radius, Random random, BlockState wood) {
         int count = (int) (radius*3.5F);
         for (int i = 0; i < count; i++) {
             float angle = (float) i / (float) count * MHelper.PI2;
@@ -109,17 +105,17 @@ public class OlyumFungiFeature extends Feature<DefaultFeatureConfig> {
 
     }
 
-    private void makeCap(StructureWorldAccess world, BlockPos pos, float radius, Random random, BlockState material) {
+    protected void makeCap(StructureWorldAccess world, BlockPos pos, float radius, Random random, BlockState material) {
 
-        int count = (int) (radius*3.5F);
+        int count = (int) (radius*7.5F);
         for (int i = 0; i < count; i++) {
 
             float angle = (float) i / (float) count * MHelper.PI2;
-            float scale = radius * MHelper.randRange(0.85F, 1.15F, random);
+            float scale = radius * MHelper.randRange(0.9F, 1.1F, random);
 
             List<Vec3f> branch = SplineHelper.copySpline(CAP);
             SplineHelper.rotateSpline(branch, angle);
-            SplineHelper.scale(branch, scale);
+            SplineHelper.scale(branch, scale, radius, scale);
 
             SplineHelper.fillSpline(branch, world, material, pos, REPLACE);
 
@@ -127,17 +123,16 @@ public class OlyumFungiFeature extends Feature<DefaultFeatureConfig> {
 
     }
 
-    private void makeSpokes(StructureWorldAccess world, BlockPos pos, float radius, Random random, BlockState material) {
+    protected void makeSpokes(StructureWorldAccess world, BlockPos pos, float radius, Random random, BlockState material) {
         int count = 5;
         for (int i = 0; i < count; i++) {
 
             float angle = (float) i / (float) count * MHelper.PI2;
-            float scale = radius * MHelper.randRange(0.85F, 1.15F, random);
+            float scale = radius + MHelper.randRange(-0.5F, 0.5F, random);
 
             List<Vec3f> branch = SplineHelper.copySpline(CAP);
             SplineHelper.rotateSpline(branch, angle);
-            SplineHelper.scale(branch, scale);
-
+            SplineHelper.scale(branch, scale, radius, scale);
 
             // If this is the count/5 repetition of loop, fill it instead with the lining material
             SplineHelper.fillSpline(branch, world, material, pos, REPLACE);

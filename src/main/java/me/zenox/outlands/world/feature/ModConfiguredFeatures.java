@@ -2,6 +2,7 @@ package me.zenox.outlands.world.feature;
 
 import me.zenox.outlands.Main;
 import me.zenox.outlands.block.ModBlocks;
+import me.zenox.outlands.world.feature.tree.MegaOlyumFungiFeature;
 import me.zenox.outlands.world.feature.tree.OlyumFungiFeature;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.Registry;
@@ -35,6 +36,9 @@ public class ModConfiguredFeatures {
 
     public static final RegistryEntry<ConfiguredFeature<DefaultFeatureConfig, ?>> OLYUM_FUNGI =
             ConfiguredFeatures.register("olyum_fungi", registerFeature("olyum_fungi", new OlyumFungiFeature(DefaultFeatureConfig.CODEC)));
+
+    public static final RegistryEntry<ConfiguredFeature<DefaultFeatureConfig, ?>> MEGA_OLYUM_FUNGI =
+            ConfiguredFeatures.register("mega_olyum_fungi", registerFeature("mega_olyum_fungi", new MegaOlyumFungiFeature(DefaultFeatureConfig.CODEC)));
 
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PATCH_OLYUM_SHRUB =
             ConfiguredFeatures.register("patch_olyum_shrub", Feature.RANDOM_PATCH,

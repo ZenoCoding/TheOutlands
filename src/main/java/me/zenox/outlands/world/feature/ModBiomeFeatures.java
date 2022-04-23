@@ -12,5 +12,6 @@ public class ModBiomeFeatures {
     public static void addOlyumTrees(GenerationSettings.Builder builder){
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.OLYUM_TREE_PLACED);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.OLYUM_FUNGI_PLACED);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.MEGA_OLYUM_FUNGI_PLACED);
     }
 }
