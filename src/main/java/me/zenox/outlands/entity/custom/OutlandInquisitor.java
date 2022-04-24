@@ -1,7 +1,9 @@
 package me.zenox.outlands.entity.custom;
 
+import me.zenox.outlands.Main;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
@@ -22,26 +24,48 @@ public class OutlandInquisitor extends HostileEntity implements IAnimatable {
         this.ignoreCameraFrustum = true;
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if(this.isAttacking()){
+    private <E extends IAnimatable> PlayState idlePredicate(AnimationEvent<E> event) {
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.outland_inquisitor.idle", true));
+        return PlayState.CONTINUE;
+    }
+
+    private <E extends IAnimatable> PlayState walkPredicate(AnimationEvent<E> event) {
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.outland_inquisitor.walk", true));
+        if(event.isMoving()){
+            return PlayState.CONTINUE;
+        }
+        return PlayState.STOP;
+
+    }
+
+    private <E extends IAnimatable> PlayState attackPredicate(AnimationEvent<E> event) {
+        if(this.handSwinging && this.handSwingProgress == 0f){
             event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.outland_inquisitor.attack", false));
-        } else {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.outland_inquisitor.idle", true));
         }
         return PlayState.CONTINUE;
+
+    }
+
+    private <E extends IAnimatable> PlayState deathPredicate(AnimationEvent<E> event) {
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.outland_inquisitor.death", false));
+        if(this.isDead()){
+            return PlayState.CONTINUE;
+        }
+        return PlayState.STOP;
     }
 
     @Override
     public void registerControllers(AnimationData data) {
-        AnimationController<OutlandInquisitor> controller = new AnimationController<>(this, "controller", 0, this::predicate);
-        data.addAnimationController(controller);
+        //AnimationController<OutlandInquisitor> idleController = new AnimationController<>(this, "idleController", 0, this::idlePredicate);
+        AnimationController<OutlandInquisitor> attackController = new AnimationController<>(this, "attackController", 0, this::attackPredicate);
+        AnimationController<OutlandInquisitor> deathController = new AnimationController<>(this, "deathController", 0, this::deathPredicate);
+        AnimationController<OutlandInquisitor> walkController = new AnimationController<>(this, "walkController", 0, this::walkPredicate);
 
+        //data.addAnimationController(idleController);
+        data.addAnimationController(attackController);
+        data.addAnimationController(deathController);
+        data.addAnimationController(walkController);
     }
-
-//    @Override
-//    public void onDeath(DamageSource source){
-//        super.onDeath(source);
-//    }
 
     @Override
     public AnimationFactory getFactory() {
