@@ -3,8 +3,8 @@ package me.zenox.outlands.entity.custom;
 import me.zenox.outlands.Main;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -18,53 +18,40 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 public class OutlandInquisitor extends HostileEntity implements IAnimatable {
 
     private AnimationFactory factory = new AnimationFactory(this);
+    private boolean playAttack = false;
 
     public OutlandInquisitor(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
         this.ignoreCameraFrustum = true;
+        this.experiencePoints = 1000;
     }
 
-    private <E extends IAnimatable> PlayState idlePredicate(AnimationEvent<E> event) {
+    private <E extends IAnimatable> PlayState mainPredicate(AnimationEvent<E> event) {
+        if (event.isMoving() && !this.playAttack) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.outland_inquisitor.walk", true));
+            return PlayState.CONTINUE;
+        } else if (this.isDead()) {
+            Main.LOGGER.debug("Outland Inquisitor is dead, attempting to play animation.");
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.outland_inquisitor.death", true));
+            return PlayState.CONTINUE;
+        }
         event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.outland_inquisitor.idle", true));
         return PlayState.CONTINUE;
     }
 
-    private <E extends IAnimatable> PlayState walkPredicate(AnimationEvent<E> event) {
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.outland_inquisitor.walk", true));
-        if(event.isMoving()){
-            return PlayState.CONTINUE;
-        }
-        return PlayState.STOP;
-
-    }
-
-    private <E extends IAnimatable> PlayState attackPredicate(AnimationEvent<E> event) {
-        if(this.handSwinging && this.handSwingProgress == 0f){
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.outland_inquisitor.attack", false));
+    private <E extends IAnimatable> PlayState attackPredicate(AnimationEvent<E> event){
+        if(playAttack) {
+            Main.LOGGER.debug("Outland Inquisitor is attacking, attemtping to play animation..");
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.outland_inquisitor.attack", true));
         }
         return PlayState.CONTINUE;
-
-    }
-
-    private <E extends IAnimatable> PlayState deathPredicate(AnimationEvent<E> event) {
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.outland_inquisitor.death", false));
-        if(this.isDead()){
-            return PlayState.CONTINUE;
-        }
-        return PlayState.STOP;
     }
 
     @Override
     public void registerControllers(AnimationData data) {
-        //AnimationController<OutlandInquisitor> idleController = new AnimationController<>(this, "idleController", 0, this::idlePredicate);
-        AnimationController<OutlandInquisitor> attackController = new AnimationController<>(this, "attackController", 0, this::attackPredicate);
-        AnimationController<OutlandInquisitor> deathController = new AnimationController<>(this, "deathController", 0, this::deathPredicate);
-        AnimationController<OutlandInquisitor> walkController = new AnimationController<>(this, "walkController", 0, this::walkPredicate);
+        AnimationController<OutlandInquisitor> mainController = new AnimationController<>(this, "controller", 0, this::mainPredicate);
 
-        //data.addAnimationController(idleController);
-        data.addAnimationController(attackController);
-        data.addAnimationController(deathController);
-        data.addAnimationController(walkController);
+        data.addAnimationController(mainController);
     }
 
     @Override
@@ -75,9 +62,30 @@ public class OutlandInquisitor extends HostileEntity implements IAnimatable {
     @Override
     public void initGoals(){
         this.goalSelector.add(1, new WanderAroundGoal(this, 1));
-        this.goalSelector.add(0, new AttackGoal(this));
+        this.goalSelector.add(0, new FixedMeleeAttackGoal(this, 0.5, false));
         this.targetSelector.add(0, new ActiveTargetGoal<PlayerEntity>(this, PlayerEntity.class, false));
-        this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
+        this.targetSelector.add(1, new ActiveTargetGoal<IronGolemEntity>(this, IronGolemEntity.class, false));
+        this.targetSelector.add(2, new RevengeGoal(this, new Class[0]));
+    }
+
+    public void setPlayAttack(Boolean value)
+    {
+        this.playAttack = true;
+    }
+
+    private static class FixedMeleeAttackGoal extends MeleeAttackGoal {
+
+        public FixedMeleeAttackGoal(OutlandInquisitor mob, double speed, boolean pauseWhenMobIdle) {
+            super(mob, speed, pauseWhenMobIdle);
+        }
+
+        @Override
+        public void tick() {
+            super.tick();
+            if(mob.world.isClient) {
+                ((OutlandInquisitor) mob).setPlayAttack(true);
+            }
+        }
     }
 }
 

@@ -1,6 +1,7 @@
 package me.zenox.outlands;
 
 import me.zenox.outlands.entity.ModEntities;
+import me.zenox.outlands.entity.custom.EoliflyRenderer;
 import me.zenox.outlands.entity.custom.OutlandInquisitorRenderer;
 import me.zenox.outlands.util.ModModelPredicateProvider;
 import net.fabricmc.api.ClientModInitializer;
@@ -31,6 +32,7 @@ public class ModClient implements ClientModInitializer {
         // entities
 
         EntityRendererRegistry.register(ModEntities.OUTLAND_INQUISITOR, OutlandInquisitorRenderer::new);
+        EntityRendererRegistry.register(ModEntities.EOLIFLY, EoliflyRenderer::new);
 
         ModModelPredicateProvider.registerModels();
 

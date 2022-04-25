@@ -39,7 +39,8 @@ public class ModOverworldBiomes
     public static Biome outlands()
     {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        spawnBuilder.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(ModEntities.OUTLAND_INQUISITOR, 5, 1, 1));
+        spawnBuilder.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(ModEntities.OUTLAND_INQUISITOR, 1, 1, 1));
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.EOLIFLY, 10, 2, 5));
 
         GenerationSettings.Builder biomeBuilder = new GenerationSettings.Builder();
         globalOverworldGeneration(biomeBuilder);
