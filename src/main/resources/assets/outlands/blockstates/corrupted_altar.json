@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "outlands:block/corrupted_altar"
+    },
+    "facing=south": {
+      "y": 180,
+      "model": "outlands:block/corrupted_altar"
+    },
+    "facing=east": {
+      "y": 90,
+      "model": "outlands:block/corrupted_altar"
+    },
+    "facing=west": {
+      "y": 270,
+      "model": "outlands:block/corrupted_altar"
+    },
+    "": {
+      "model": "outlands:block/corrupted_altar"
+    }
+  }
+}

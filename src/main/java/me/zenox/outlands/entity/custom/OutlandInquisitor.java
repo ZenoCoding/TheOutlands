@@ -31,7 +31,7 @@ public class OutlandInquisitor extends HostileEntity implements IAnimatable {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.outland_inquisitor.walk", true));
             return PlayState.CONTINUE;
         } else if (this.isDead()) {
-            Main.LOGGER.debug("Outland Inquisitor is dead, attempting to play animation.");
+            Main.LOGGER.info("Outland Inquisitor is dead, attempting to play animation.");
             event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.outland_inquisitor.death", true));
             return PlayState.CONTINUE;
         }
@@ -41,7 +41,7 @@ public class OutlandInquisitor extends HostileEntity implements IAnimatable {
 
     private <E extends IAnimatable> PlayState attackPredicate(AnimationEvent<E> event){
         if(playAttack) {
-            Main.LOGGER.debug("Outland Inquisitor is attacking, attemtping to play animation..");
+            Main.LOGGER.info("Outland Inquisitor is attacking, attemtping to play animation..");
             event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.outland_inquisitor.attack", true));
         }
         return PlayState.CONTINUE;

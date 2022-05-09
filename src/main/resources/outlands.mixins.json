@@ -4,7 +4,7 @@
   "package": "me.zenox.outlands.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "DamageMixin"
+    "EntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

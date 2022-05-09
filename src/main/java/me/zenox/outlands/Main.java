@@ -1,6 +1,7 @@
 package me.zenox.outlands;
 
 import me.zenox.outlands.entity.ModEntities;
+import me.zenox.outlands.particle.ModParticles;
 import me.zenox.outlands.util.ModRegistries;
 import me.zenox.outlands.world.feature.ModConfiguredFeatures;
 import net.fabricmc.api.ModInitializer;
@@ -35,11 +36,14 @@ public class Main implements ModInitializer {
         ModRegistries.registerEvents();
         ModRegistries.registerFlammableBlocks();
         ModRegistries.registerRenderLayers();
+        ModRegistries.registerBlockRenderers();
 
         ModConfiguredFeatures.registerConfiguredFeatures();
         ModBiomes.registerBiomes();
         ModWorldGen.generateModWorldGen();
-        // ModParticles.registerParticles();
+
+        ModParticles.registerParticles();
+
 
 
     }

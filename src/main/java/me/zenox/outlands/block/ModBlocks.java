@@ -7,7 +7,9 @@ import me.zenox.outlands.world.feature.tree.OutlandSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import me.zenox.outlands.item.ModItems;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -56,6 +58,13 @@ public class ModBlocks {
     public static final Block OLYUM_FUNGI_CAP = registerBlock("olyum_fungi_cap",
             new JellyBlock(FabricBlockSettings.copy(Blocks.SLIME_BLOCK)), ModItems.OUTLAND_ITEM_GROUP);
 
+    public static final Block CORRUPTED_ALTAR = registerBlock("corrupted_altar",
+            new CorruptedAltarBlock(FabricBlockSettings.of(Material.METAL).strength(50f)), ModItems.OUTLAND_ITEM_GROUP);
+
+    // Block Entities
+
+    public static final BlockEntityType<CorruptedAltarBlockEntity> CORRUPTED_ALTAR_BLOCK_ENTITY = registerBlockEntity("corrupted_altar_entity", FabricBlockEntityTypeBuilder.create(CorruptedAltarBlockEntity::new, CORRUPTED_ALTAR).build(null));
+
 
     private static Block registerBlock(String name, Block block, ItemGroup group){
         registerBlockItem(name, block, group);
@@ -65,6 +74,10 @@ public class ModBlocks {
     private static Item registerBlockItem(String name, Block block, ItemGroup group){
         return Registry.register(Registry.ITEM, new Identifier(Main.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings().group(group)));
+    }
+
+    private static BlockEntityType registerBlockEntity(String name, BlockEntityType<?> type){
+        return Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Main.MOD_ID, name), type);
     }
 
     public static void registerModBlocks(){
