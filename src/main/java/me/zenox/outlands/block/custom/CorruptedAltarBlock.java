@@ -16,6 +16,7 @@ public class CorruptedAltarBlock extends Block implements BlockEntityProvider {
         return BlockRenderType.ENTITYBLOCK_ANIMATED;
     }
 
+    @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new CorruptedAltarBlockEntity(pos, state);
     }

@@ -1,4 +1,4 @@
-package me.zenox.outlands;
+package me.zenox.outlands.util.interfaces;
 
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;

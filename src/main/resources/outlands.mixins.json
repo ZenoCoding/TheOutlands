@@ -4,7 +4,8 @@
   "package": "me.zenox.outlands.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "EntityMixin"
+    "EntityMixin",
+    "EnchantmentMixin"
   ],
   "injectors": {
     "defaultRequire": 1

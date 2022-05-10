@@ -1,10 +1,11 @@
 package me.zenox.outlands.mixin;
 
-import me.zenox.outlands.EntityDamagedCallback;
+import me.zenox.outlands.enchantment.EnchantHelper;
+import me.zenox.outlands.util.interfaces.EntityDamagedCallback;
 import me.zenox.outlands.Main;
 import me.zenox.outlands.item.ModItems;
 import me.zenox.outlands.particle.ModParticles;
-import me.zenox.outlands.util.DamageTimer;
+import me.zenox.outlands.util.interfaces.DamageTimer;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.server.world.ServerWorld;
@@ -33,6 +34,8 @@ public abstract class EntityMixin implements DamageTimer {
 
     @Inject(at = @At("TAIL"), method = "damage", cancellable = true)
     private void onDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+        EnchantHelper.outlands$onUserDamaged((LivingEntity) (Object) this, source);
+
         if(source.getAttacker() instanceof LivingEntity) {
             LivingEntity attacker = (LivingEntity) source.getAttacker();
             if(attacker.getStackInHand(Hand.MAIN_HAND).getItem().equals(ModItems.OUTLAND_BATTLEAXE)) {
@@ -43,6 +46,7 @@ public abstract class EntityMixin implements DamageTimer {
                 }
             }
         }
+
     }
 
     @Inject(at = @At("TAIL"), method = "tick", cancellable = true)

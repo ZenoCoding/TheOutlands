@@ -1,5 +1,6 @@
 package me.zenox.outlands;
 
+import me.zenox.outlands.enchantment.ModEnchantments;
 import me.zenox.outlands.entity.ModEntities;
 import me.zenox.outlands.particle.ModParticles;
 import me.zenox.outlands.util.ModRegistries;
@@ -44,7 +45,7 @@ public class Main implements ModInitializer {
 
         ModParticles.registerParticles();
 
-
+        ModEnchantments.registerModEnchantments();
 
     }
 

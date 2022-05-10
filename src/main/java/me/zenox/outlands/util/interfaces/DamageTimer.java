@@ -1,4 +1,4 @@
-package me.zenox.outlands.util;
+package me.zenox.outlands.util.interfaces;
 
 import net.minecraft.entity.LivingEntity;
 import org.apache.commons.lang3.tuple.Pair;

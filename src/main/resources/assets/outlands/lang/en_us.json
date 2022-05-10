@@ -44,5 +44,7 @@
   "entity.outlands.eolifly": "Eolifly",
 
   "outlands.energy_beam_charge": "Energy Beam Charging",
-  "outlands.energy_beam_fire": "Energy Beam Firing"
+  "outlands.energy_beam_fire": "Energy Beam Firing",
+
+  "enchantment.outlands.crushing": "Crushing"
 }
