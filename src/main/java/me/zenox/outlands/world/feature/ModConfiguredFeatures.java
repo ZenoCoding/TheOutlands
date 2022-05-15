@@ -48,11 +48,11 @@ public class ModConfiguredFeatures {
             ConfiguredFeatures.register("patch_olyum_sprouts", Feature.RANDOM_PATCH,
                     ConfiguredFeatures.createRandomPatchFeatureConfig(32, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.OLYUM_SPROUTS)))));
 
-    public static void registerConfiguredFeatures(){
+    public static void registerConfiguredFeatures() {
         Main.LOGGER.info("Registering ModConfiguredFeatures for " + Main.MOD_ID);
     }
 
     private static <C extends FeatureConfig, F extends Feature<C>> F registerFeature(String name, F feature) {
-        return (F) Registry.register(Registry.FEATURE, name, feature);
+        return Registry.register(Registry.FEATURE, name, feature);
     }
 }

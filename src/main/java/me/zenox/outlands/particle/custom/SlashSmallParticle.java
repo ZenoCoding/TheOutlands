@@ -6,7 +6,7 @@ import net.minecraft.client.particle.*;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.DefaultParticleType;
 
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public class SlashSmallParticle extends SpriteBillboardParticle {
     private final SpriteProvider spriteSet;
 
@@ -15,7 +15,7 @@ public class SlashSmallParticle extends SpriteBillboardParticle {
         float f;
         this.spriteSet = spriteSet;
         this.velocityMultiplier = 0.6f;
-        this.scale = 1.0f - (float)d * 0.5f;
+        this.scale = 1.0f - (float) d * 0.5f;
         this.maxAge = 8;
         this.setSpriteForAge(spriteSet);
 
@@ -41,7 +41,7 @@ public class SlashSmallParticle extends SpriteBillboardParticle {
         return ParticleTextureSheet.PARTICLE_SHEET_LIT;
     }
 
-    @Environment(value= EnvType.CLIENT)
+    @Environment(value = EnvType.CLIENT)
     public static class Factory
             implements ParticleFactory<DefaultParticleType> {
         private final SpriteProvider spriteSet;

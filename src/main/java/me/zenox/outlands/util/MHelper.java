@@ -195,6 +195,11 @@ public class MHelper {
         return (float) Math.acos(dot / Math.sqrt(length1 * length2));
     }
 
+    public static float angle2d(float x1, float y1, float x2, float y2) {
+        float angle = (float) Math.toDegrees(Math.atan2(x2 - x1, y2 - y1));
+        return angle < 0 ? angle + 360 : angle;
+    }
+
     public static Vec3f randomHorizontal(Random random) {
         float angleY = randRange(0, PI2, random);
         float vx = (float) Math.sin(angleY);

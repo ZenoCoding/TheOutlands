@@ -1,11 +1,11 @@
 package me.zenox.outlands.mixin;
 
-import me.zenox.outlands.enchantment.EnchantHelper;
-import me.zenox.outlands.util.interfaces.EntityDamagedCallback;
 import me.zenox.outlands.Main;
+import me.zenox.outlands.enchantment.EnchantHelper;
 import me.zenox.outlands.item.ModItems;
 import me.zenox.outlands.particle.ModParticles;
 import me.zenox.outlands.util.interfaces.DamageTimer;
+import me.zenox.outlands.util.interfaces.EntityDamagedCallback;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.server.world.ServerWorld;
@@ -23,25 +23,27 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 @Mixin(LivingEntity.class)
 public abstract class EntityMixin implements DamageTimer {
 
     @Unique
-    private List<Pair<Pair<Float, LivingEntity>, Integer>> outlands$timers = new ArrayList();
+    private final List<Pair<Pair<Float, LivingEntity>, Integer>> outlands$timers = new ArrayList();
     private List<Pair<Pair<Float, LivingEntity>, Integer>> outlands$queueaddtimers = new ArrayList();
 
     @Inject(at = @At("TAIL"), method = "damage", cancellable = true)
     private void onDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         EnchantHelper.outlands$onUserDamaged((LivingEntity) (Object) this, source);
 
-        if(source.getAttacker() instanceof LivingEntity) {
+        if (source.getAttacker() instanceof LivingEntity) {
             LivingEntity attacker = (LivingEntity) source.getAttacker();
-            if(attacker.getStackInHand(Hand.MAIN_HAND).getItem().equals(ModItems.OUTLAND_BATTLEAXE)) {
+            if (attacker.getStackInHand(Hand.MAIN_HAND).getItem().equals(ModItems.OUTLAND_BATTLEAXE)) {
                 ActionResult result = EntityDamagedCallback.EVENT.invoker().interact(attacker, (LivingEntity) (Object) this, amount);
 
-                if(result == ActionResult.FAIL) {
+                if (result == ActionResult.FAIL) {
                     cir.cancel();
                 }
             }
@@ -55,8 +57,8 @@ public abstract class EntityMixin implements DamageTimer {
         this.outlands$queueaddtimers = new ArrayList();
         this.outlands$decrementTimers();
         List<Pair<Pair<Float, LivingEntity>, Integer>> foundTimers = new ArrayList();
-        for (Pair<Pair<Float, LivingEntity>, Integer> timer : this.outlands$timers){
-            if(timer.getValue() == 0){
+        for (Pair<Pair<Float, LivingEntity>, Integer> timer : this.outlands$timers) {
+            if (timer.getValue() == 0) {
                 this.damageTrigger(timer.getKey().getValue(), (LivingEntity) (Object) this, timer.getKey().getKey());
                 foundTimers.add(timer);
             }
@@ -86,8 +88,8 @@ public abstract class EntityMixin implements DamageTimer {
     }
 
     private void outlands$decrementTimers() {
-        for (Pair<Pair<Float, LivingEntity>, Integer> timer: this.outlands$timers){
-            timer.setValue(timer.getValue()-1);
+        for (Pair<Pair<Float, LivingEntity>, Integer> timer : this.outlands$timers) {
+            timer.setValue(timer.getValue() - 1);
         }
     }
 

@@ -3,7 +3,6 @@ package me.zenox.outlands.world.feature.tree;
 
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
-import me.zenox.outlands.Main;
 import me.zenox.outlands.block.ModBlocks;
 import me.zenox.outlands.util.MHelper;
 import me.zenox.outlands.util.SplineHelper;
@@ -65,7 +64,7 @@ public class OlyumFungiFeature extends Feature<DefaultFeatureConfig> {
         int height = MHelper.randRange(10, 15, random);
         float radius = height * MHelper.randRange(0.7F, 1.2F, random);
 
-        if(radius < 1.5F){
+        if (radius < 1.5F) {
             radius = 1.5F;
         }
 
@@ -92,7 +91,7 @@ public class OlyumFungiFeature extends Feature<DefaultFeatureConfig> {
     }
 
     protected void makeTrunk(StructureWorldAccess world, BlockPos pos, float radius, Random random, BlockState wood) {
-        int count = (int) (radius*3.5F);
+        int count = (int) (radius * 3.5F);
         for (int i = 0; i < count; i++) {
             float angle = (float) i / (float) count * MHelper.PI2;
             float scale = radius * MHelper.randRange(0.85F, 1.15F, random);
@@ -107,7 +106,7 @@ public class OlyumFungiFeature extends Feature<DefaultFeatureConfig> {
 
     protected void makeCap(StructureWorldAccess world, BlockPos pos, float radius, Random random, BlockState material) {
 
-        int count = (int) (radius*7.5F);
+        int count = (int) (radius * 7.5F);
         for (int i = 0; i < count; i++) {
 
             float angle = (float) i / (float) count * MHelper.PI2;

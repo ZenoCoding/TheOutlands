@@ -27,7 +27,7 @@ public class ModBowItem extends BowItem {
         if (!(user instanceof PlayerEntity)) {
             return;
         }
-        PlayerEntity playerEntity = (PlayerEntity)user;
+        PlayerEntity playerEntity = (PlayerEntity) user;
         boolean bl = playerEntity.getAbilities().creativeMode || EnchantmentHelper.getLevel(Enchantments.INFINITY, stack) > 0;
         ItemStack itemStack = playerEntity.getArrowType(stack);
         if (itemStack.isEmpty() && !bl) {
@@ -36,21 +36,21 @@ public class ModBowItem extends BowItem {
         if (itemStack.isEmpty()) {
             itemStack = new ItemStack(Items.ARROW);
         }
-        if ((double)(f = ModBowItem.getPullProgress(i = this.getMaxUseTime(stack) - remainingUseTicks)) < 0.1) {
+        if ((double) (f = ModBowItem.getPullProgress(i = this.getMaxUseTime(stack) - remainingUseTicks)) < 0.1) {
             return;
         }
         boolean bl3 = bl2 = bl && itemStack.isOf(Items.ARROW);
         if (!world.isClient) {
             int k;
             int j;
-            ArrowItem arrowItem = (ArrowItem)(itemStack.getItem() instanceof ArrowItem ? itemStack.getItem() : Items.ARROW);
+            ArrowItem arrowItem = (ArrowItem) (itemStack.getItem() instanceof ArrowItem ? itemStack.getItem() : Items.ARROW);
             PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world, itemStack, playerEntity);
             persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * 5.0f, 0.5f);
             if (f == 1.0f) {
                 persistentProjectileEntity.setCritical(true);
             }
             if ((j = EnchantmentHelper.getLevel(Enchantments.POWER, stack)) > 0) {
-                persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() + (double)j * 0.7 + 0.5);
+                persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() + (double) j * 0.7 + 0.5);
             }
             if ((k = EnchantmentHelper.getLevel(Enchantments.PUNCH, stack)) > 0) {
                 persistentProjectileEntity.setPunch(k);
@@ -75,7 +75,7 @@ public class ModBowItem extends BowItem {
     }
 
     public static float getPullProgress(int useTicks) {
-        float f = (float)useTicks / 20.0f;
+        float f = (float) useTicks / 20.0f;
         if ((f = (f * f + f * 2.0f) / 2.0f) > 1.0f) {
             f = 1.0f;
         }

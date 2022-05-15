@@ -9,7 +9,7 @@ public class ModBiomeFeatures {
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.OLYUM_SPROUTS_PATCH_PLACED);
     }
 
-    public static void addOlyumTrees(GenerationSettings.Builder builder){
+    public static void addOlyumTrees(GenerationSettings.Builder builder) {
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.OLYUM_TREE_PLACED);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.OLYUM_FUNGI_PLACED);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.MEGA_OLYUM_FUNGI_PLACED);

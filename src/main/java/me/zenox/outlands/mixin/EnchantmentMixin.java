@@ -1,6 +1,5 @@
 package me.zenox.outlands.mixin;
 
-import me.zenox.outlands.Main;
 import me.zenox.outlands.util.interfaces.EnchantmentAddon;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.LivingEntity;

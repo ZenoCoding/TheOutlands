@@ -1,15 +1,15 @@
 package me.zenox.outlands;
 
+import me.zenox.outlands.block.ModBlocks;
 import me.zenox.outlands.enchantment.ModEnchantments;
 import me.zenox.outlands.entity.ModEntities;
+import me.zenox.outlands.item.ModItems;
 import me.zenox.outlands.particle.ModParticles;
 import me.zenox.outlands.util.ModRegistries;
-import me.zenox.outlands.world.feature.ModConfiguredFeatures;
-import net.fabricmc.api.ModInitializer;
-import me.zenox.outlands.block.ModBlocks;
-import me.zenox.outlands.item.ModItems;
 import me.zenox.outlands.world.biome.ModBiomes;
+import me.zenox.outlands.world.feature.ModConfiguredFeatures;
 import me.zenox.outlands.world.gen.ModWorldGen;
+import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.bernie.geckolib3.GeckoLib;

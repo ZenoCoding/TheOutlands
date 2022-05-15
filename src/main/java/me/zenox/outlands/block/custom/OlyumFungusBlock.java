@@ -8,12 +8,14 @@ import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.RandomPatchFeatureConfig;
 
 import java.util.Random;
 import java.util.function.Supplier;
 
-public class OlyumFungusBlock extends OlyumPlantBlock implements Fertilizable{
+public class OlyumFungusBlock extends OlyumPlantBlock implements Fertilizable {
     protected static final VoxelShape SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 9.0D, 14.0D);
     private static final double GROW_CHANCE = 0.05;
     private final Supplier<RegistryEntry<ConfiguredFeature<DefaultFeatureConfig, ?>>> feature;
@@ -42,7 +44,7 @@ public class OlyumFungusBlock extends OlyumPlantBlock implements Fertilizable{
 
     @Override
     public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
-        return (double)random.nextFloat() < 0.4;
+        return (double) random.nextFloat() < 0.4;
     }
 
     @Override

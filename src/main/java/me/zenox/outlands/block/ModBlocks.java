@@ -2,11 +2,11 @@ package me.zenox.outlands.block;
 
 import me.zenox.outlands.Main;
 import me.zenox.outlands.block.custom.*;
+import me.zenox.outlands.item.ModItems;
 import me.zenox.outlands.world.feature.ModConfiguredFeatures;
 import me.zenox.outlands.world.feature.tree.OutlandSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import me.zenox.outlands.item.ModItems;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntityType;
@@ -66,21 +66,21 @@ public class ModBlocks {
     public static final BlockEntityType<CorruptedAltarBlockEntity> CORRUPTED_ALTAR_BLOCK_ENTITY = registerBlockEntity("corrupted_altar_entity", FabricBlockEntityTypeBuilder.create(CorruptedAltarBlockEntity::new, CORRUPTED_ALTAR).build(null));
 
 
-    private static Block registerBlock(String name, Block block, ItemGroup group){
+    private static Block registerBlock(String name, Block block, ItemGroup group) {
         registerBlockItem(name, block, group);
         return Registry.register(Registry.BLOCK, new Identifier(Main.MOD_ID, name), block);
     }
 
-    private static Item registerBlockItem(String name, Block block, ItemGroup group){
+    private static Item registerBlockItem(String name, Block block, ItemGroup group) {
         return Registry.register(Registry.ITEM, new Identifier(Main.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings().group(group)));
     }
 
-    private static BlockEntityType registerBlockEntity(String name, BlockEntityType<?> type){
+    private static BlockEntityType registerBlockEntity(String name, BlockEntityType<?> type) {
         return Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Main.MOD_ID, name), type);
     }
 
-    public static void registerModBlocks(){
+    public static void registerModBlocks() {
         Main.LOGGER.info("Registering ModBlocks for " + Main.MOD_ID);
     }
 }

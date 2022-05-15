@@ -1,7 +1,7 @@
 package me.zenox.outlands.block.custom;
 
-import me.zenox.outlands.world.feature.ModConfiguredFeatures;
 import me.zenox.outlands.block.ModBlocks;
+import me.zenox.outlands.world.feature.ModConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
@@ -12,7 +12,7 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 
 import java.util.Random;
 
-public class OlyumPlantBlock extends PlantBlock implements Fertilizable{
+public class OlyumPlantBlock extends PlantBlock implements Fertilizable {
     protected static final float field_31261 = 6.0F;
     protected static final VoxelShape SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 9.0D, 14.0D);
 

@@ -1,11 +1,10 @@
 package me.zenox.outlands.util;
 
 import com.google.common.collect.Lists;
-import me.zenox.outlands.Main;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3f;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3f;
 import net.minecraft.world.StructureWorldAccess;
 
 import java.util.ArrayList;
@@ -158,8 +157,7 @@ public class SplineHelper {
                 if (down && bState.equals(state) || replace.apply(bState)) {
                     world.setBlockState(bPos, state, 1 | 16 | 2);
                 }
-            }
-            else {
+            } else {
                 return false;
             }
             x += dx;
@@ -176,8 +174,7 @@ public class SplineHelper {
                 world.setBlockState(bPos, state, 1 | 16 | 2);
             }
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -228,7 +225,7 @@ public class SplineHelper {
     public static boolean canGenerate(List<Vec3f> spline, float scale, BlockPos start, StructureWorldAccess world, Function<BlockState, Boolean> canReplace) {
         int count = spline.size();
         Vec3f vec = spline.get(0);
-       BlockPos.Mutable mut = new BlockPos.Mutable();
+        BlockPos.Mutable mut = new BlockPos.Mutable();
         float x1 = start.getX() + vec.getX() * scale;
         float y1 = start.getY() + vec.getY() * scale;
         float z1 = start.getZ() + vec.getZ() * scale;
@@ -259,7 +256,7 @@ public class SplineHelper {
     public static boolean canGenerate(List<Vec3f> spline, BlockPos start, StructureWorldAccess world, Function<BlockState, Boolean> canReplace) {
         int count = spline.size();
         Vec3f vec = spline.get(0);
-       BlockPos.Mutable mut = new BlockPos.Mutable();
+        BlockPos.Mutable mut = new BlockPos.Mutable();
         float x1 = start.getX() + vec.getX();
         float y1 = start.getY() + vec.getY();
         float z1 = start.getZ() + vec.getZ();

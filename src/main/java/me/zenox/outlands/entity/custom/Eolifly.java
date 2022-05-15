@@ -1,11 +1,9 @@
 package me.zenox.outlands.entity.custom;
 
-import me.zenox.outlands.Main;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.FlyGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
-import net.minecraft.entity.ai.goal.WanderAroundGoal;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.world.World;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -17,7 +15,7 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 public class Eolifly extends PathAwareEntity implements IAnimatable {
-    private AnimationFactory factory = new AnimationFactory(this);
+    private final AnimationFactory factory = new AnimationFactory(this);
 
     public Eolifly(EntityType<? extends PathAwareEntity> entityType, World world) {
         super(entityType, world);
@@ -55,9 +53,9 @@ public class Eolifly extends PathAwareEntity implements IAnimatable {
     }
 
     @Override
-    public void initGoals(){
+    public void initGoals() {
         this.goalSelector.add(1, new FlyGoal(this, 2));
         this.goalSelector.add(0, new MeleeAttackGoal(this, 1, false));
-        this.targetSelector.add(2, new RevengeGoal(this, new Class[0]));
+        this.targetSelector.add(2, new RevengeGoal(this));
     }
 }

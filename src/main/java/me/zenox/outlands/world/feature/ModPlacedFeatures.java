@@ -12,7 +12,7 @@ public class ModPlacedFeatures {
 
     public static final RegistryEntry<PlacedFeature> OLYUM_TREE_PLACED = PlacedFeatures.register("olyum_tree_placed",
             ModConfiguredFeatures.OLYUM_TREE_SPAWN, VegetationPlacedFeatures.modifiers(
-                PlacedFeatures.createCountExtraModifier(1, 0.1f, 2)));
+                    PlacedFeatures.createCountExtraModifier(1, 0.1f, 2)));
 
 
     public static final RegistryEntry<PlacedFeature> OLYUM_FUNGI_PLACED = PlacedFeatures.register("olyum_fungi_placed", ModConfiguredFeatures.OLYUM_FUNGI, CountPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());

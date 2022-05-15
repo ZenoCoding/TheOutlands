@@ -1,7 +1,6 @@
 package me.zenox.outlands.block.custom;
 
 import me.zenox.outlands.block.ModBlocks;
-import me.zenox.outlands.entity.custom.Eolifly;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;
@@ -15,7 +14,7 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 public class CorruptedAltarBlockEntity extends BlockEntity implements IAnimatable {
 
-    private AnimationFactory factory = new AnimationFactory(this);
+    private final AnimationFactory factory = new AnimationFactory(this);
 
     public CorruptedAltarBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlocks.CORRUPTED_ALTAR_BLOCK_ENTITY, pos, state);

@@ -81,11 +81,11 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.OUTLAND, EquipmentSlot.FEET,
                     new FabricItemSettings().group(ModItems.OUTLAND_ITEM_GROUP)));
 
-    private static Item registerItem(String name, Item item){
+    private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(Main.MOD_ID, name), item);
     }
 
-    public static void registerItems(){
+    public static void registerItems() {
         Main.LOGGER.info("Registering ModItems for " + Main.MOD_ID);
     }
 

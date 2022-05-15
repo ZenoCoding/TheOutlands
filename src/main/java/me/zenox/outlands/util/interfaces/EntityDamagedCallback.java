@@ -11,7 +11,7 @@ public interface EntityDamagedCallback {
                 for (EntityDamagedCallback listener : listeners) {
                     ActionResult result = listener.interact(attacker, target, damage);
 
-                    if(result != ActionResult.PASS) {
+                    if (result != ActionResult.PASS) {
                         return result;
                     }
                 }

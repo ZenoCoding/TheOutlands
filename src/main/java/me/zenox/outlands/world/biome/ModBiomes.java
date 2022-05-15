@@ -11,8 +11,7 @@ public class ModBiomes {
 
     public static final RegistryKey<Biome> OUTLANDS = registerBiome("outlands", ModOverworldBiomes.outlands());
 
-    private static RegistryKey<Biome> registerBiome(String name, Biome biome)
-    {
+    private static RegistryKey<Biome> registerBiome(String name, Biome biome) {
         RegistryKey<Biome> key = RegistryKey.of(Registry.BIOME_KEY, new Identifier(Main.MOD_ID, name));
         BuiltinRegistries.add(BuiltinRegistries.BIOME, key, biome);
         return key;

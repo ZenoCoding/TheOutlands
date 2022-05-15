@@ -1,7 +1,5 @@
 package me.zenox.outlands.enchantment;
 
-import me.zenox.outlands.Main;
-import me.zenox.outlands.particle.ModParticles;
 import me.zenox.outlands.util.interfaces.EnchantmentAddon;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
@@ -30,34 +28,32 @@ public class CrushingEnchantment extends Enchantment implements EnchantmentAddon
 
     @Override
     public void outlands$onUserDamaged(LivingEntity user, DamageSource source, int level) {
-        if(!user.world.isClient()){
-            if(shouldTrigger(source.isFromFalling(), user instanceof PlayerEntity, user.isSneaking())){
+        if (!user.world.isClient()) {
+            if (shouldTrigger(source.isFromFalling(), user instanceof PlayerEntity, user.isSneaking())) {
                 ServerWorld world = (ServerWorld) user.world;
                 Random r = new Random();
-                for (int i = 0; i < 500; i++) {
-                    float s = r.nextFloat()*360;
-                    float t = r.nextFloat()*360;
-                    float radius = level*2;
-                    world.spawnParticles(ParticleTypes.SMOKE, user.getX(), user.getY(), user.getZ(), 2, radius * Math.cos(s) * Math.sin(t), radius * Math.cos(s) * Math.sin(t) , radius * Math.cos(t), (radius+r.nextFloat())/4);
+                for (int i = 0; i < 250; i++) {
+                    float s = r.nextFloat() * 360;
+                    float t = r.nextFloat() * 360;
+                    float radius = level * 2;
+                    world.spawnParticles(ParticleTypes.SMOKE, user.getX(), user.getY(), user.getZ(), 1, radius * Math.cos(s) * Math.sin(t), r.nextFloat(), radius * Math.cos(t), (radius + r.nextFloat()) / 4);
                 }
-                List<Entity> nearbyentities = world.getOtherEntities(user, Box.of(new Vec3d(user.getX(), user.getY()+level/3, user.getZ()), level*2, level*3, level*2));
+                List<Entity> nearbyentities = world.getOtherEntities(user, Box.of(new Vec3d(user.getX(), user.getY() + level / 3, user.getZ()), level * 2, level * 3, level * 2));
                 for (Entity entity : nearbyentities) {
-                    if(entity instanceof LivingEntity) {
-                        ((LivingEntity) entity).damage(DamageSource.mob(user), level * 2);
-                        ((LivingEntity) entity).takeKnockback(4, entity.getX() - user.getX(), entity.getZ() - user.getZ());
+                    if (entity instanceof LivingEntity) {
+                        entity.damage(DamageSource.mob(user), level * 2);
+                        ((LivingEntity) entity).takeKnockback(level, entity.getX() - user.getX(), entity.getZ() - user.getZ());
                     }
                 }
             }
         }
     }
 
-    private boolean shouldTrigger(Boolean falling, Boolean isplayer, Boolean issneaking){
-        if(falling){
-            if(!isplayer){
+    private boolean shouldTrigger(Boolean falling, Boolean isplayer, Boolean issneaking) {
+        if (falling) {
+            if (!isplayer) {
                 return true;
-            } else if(issneaking){
-                return true;
-            }
+            } else return issneaking;
         }
         return false;
     }

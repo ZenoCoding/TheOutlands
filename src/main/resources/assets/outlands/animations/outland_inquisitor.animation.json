@@ -1121,7 +1121,7 @@
 		},
 		"animation.outland_inquisitor.idle": {
 			"loop": true,
-			"animation_length": 3.41667,
+			"animation_length": 3.66667,
 			"bones": {
 				"Body": {
 					"scale": {
@@ -1158,6 +1158,19 @@
 						"2.625": {
 							"vector": [0, 0, 0]
 						}
+					}
+				}
+			}
+		},
+		"beam": {
+			"animation_length": 0.04167,
+			"bones": {
+				"beam": {
+					"position": {
+						"vector": [0, 0, 12]
+					},
+					"scale": {
+						"vector": [1, 1, 1]
 					}
 				}
 			}

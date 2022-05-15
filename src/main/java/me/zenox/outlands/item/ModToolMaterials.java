@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 public enum ModToolMaterials implements ToolMaterial {
 
     OUTLAND(5, 5000, 15.0F, 0.0F, 15, () -> {
-        return Ingredient.ofItems(new ItemConvertible[]{ModItems.OUTLAND_INGOT});
+        return Ingredient.ofItems(ModItems.OUTLAND_INGOT);
     });
 
     private final int miningLevel;
@@ -20,7 +20,7 @@ public enum ModToolMaterials implements ToolMaterial {
     private final int enchantability;
     private final Lazy<Ingredient> repairIngredient;
 
-    private ModToolMaterials(int miningLevel, int itemDurability, float miningSpeed, float attackDamage, int enchantability, Supplier<Ingredient> repairIngredient) {
+    ModToolMaterials(int miningLevel, int itemDurability, float miningSpeed, float attackDamage, int enchantability, Supplier<Ingredient> repairIngredient) {
         this.miningLevel = miningLevel;
         this.itemDurability = itemDurability;
         this.miningSpeed = miningSpeed;
@@ -50,6 +50,6 @@ public enum ModToolMaterials implements ToolMaterial {
     }
 
     public Ingredient getRepairIngredient() {
-        return (Ingredient)this.repairIngredient.get();
+        return this.repairIngredient.get();
     }
 }

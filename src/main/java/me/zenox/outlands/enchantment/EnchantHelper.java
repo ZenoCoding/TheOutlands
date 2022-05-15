@@ -11,7 +11,7 @@ import net.minecraft.nbt.NbtList;
 import net.minecraft.util.registry.Registry;
 
 public class EnchantHelper {
-    public static void outlands$onUserDamaged(LivingEntity user, DamageSource source){
+    public static void outlands$onUserDamaged(LivingEntity user, DamageSource source) {
         Consumer consumer = (enchantment, level) -> ((EnchantmentAddon) enchantment).outlands$onUserDamaged(user, source, level);
         if (user != null) {
             forEachEnchantment(consumer, user.getItemsEquipped());
@@ -25,7 +25,7 @@ public class EnchantHelper {
         NbtList nbtList = stack.getEnchantments();
         for (int i = 0; i < nbtList.size(); ++i) {
             NbtCompound nbtCompound = nbtList.getCompound(i);
-            Registry.ENCHANTMENT.getOrEmpty(EnchantmentHelper.getIdFromNbt(nbtCompound)).ifPresent(enchantment -> consumer.accept((Enchantment)enchantment, EnchantmentHelper.getLevelFromNbt(nbtCompound)));
+            Registry.ENCHANTMENT.getOrEmpty(EnchantmentHelper.getIdFromNbt(nbtCompound)).ifPresent(enchantment -> consumer.accept(enchantment, EnchantmentHelper.getLevelFromNbt(nbtCompound)));
         }
     }
 
@@ -36,7 +36,7 @@ public class EnchantHelper {
     }
 
     @FunctionalInterface
-    static interface Consumer {
-        public void accept(Enchantment var1, int var2);
+    interface Consumer {
+        void accept(Enchantment var1, int var2);
     }
 }

@@ -1,9 +1,9 @@
 package me.zenox.outlands.util;
 
-import me.zenox.outlands.util.interfaces.EntityDamagedCallback;
 import me.zenox.outlands.block.ModBlocks;
 import me.zenox.outlands.block.custom.CorruptedAltarRenderer;
 import me.zenox.outlands.util.interfaces.DamageTimer;
+import me.zenox.outlands.util.interfaces.EntityDamagedCallback;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
@@ -36,7 +36,7 @@ public class ModRegistries {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(), ModBlocks.OLYUM_FUNGI_CAP);
     }
 
-    public static void registerBlockRenderers(){
+    public static void registerBlockRenderers() {
         BlockEntityRendererRegistry.register(ModBlocks.CORRUPTED_ALTAR_BLOCK_ENTITY, (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new CorruptedAltarRenderer());
     }
 }

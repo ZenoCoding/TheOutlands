@@ -17,7 +17,7 @@ public class ModEnchantments {
         return Registry.register(Registry.ENCHANTMENT, new Identifier(Main.MOD_ID, name), enchantment);
     }
 
-    public static void registerModEnchantments(){
+    public static void registerModEnchantments() {
         Main.LOGGER.info("Registering Enchantments for " + Main.MOD_ID);
     }
 }

@@ -13,7 +13,7 @@ import net.minecraft.world.gen.feature.util.FeatureContext;
 import java.util.List;
 import java.util.Random;
 
-public class MegaOlyumFungiFeature extends OlyumFungiFeature{
+public class MegaOlyumFungiFeature extends OlyumFungiFeature {
     public MegaOlyumFungiFeature(Codec<DefaultFeatureConfig> codec) {
         super(codec);
     }
@@ -40,7 +40,7 @@ public class MegaOlyumFungiFeature extends OlyumFungiFeature{
         int height = MHelper.randRange(25, 35, random);
         float radius = height;
 
-        if(radius < 1.5F){
+        if (radius < 1.5F) {
             radius = 1.5F;
         }
 
@@ -56,15 +56,15 @@ public class MegaOlyumFungiFeature extends OlyumFungiFeature{
         // Generation
 
         // Lower Cap
-        makeCap(world, blockPos.add(0, height/3, 0), radius/2, random, ModBlocks.OLYUM_FUNGI_CAP.getDefaultState());
-        makeSpokes(world, blockPos.add(0, height/3-2, 0), radius/2, random, ModBlocks.OLCRIUM.getDefaultState());
+        makeCap(world, blockPos.add(0, height / 3, 0), radius / 2, random, ModBlocks.OLYUM_FUNGI_CAP.getDefaultState());
+        makeSpokes(world, blockPos.add(0, height / 3 - 2, 0), radius / 2, random, ModBlocks.OLCRIUM.getDefaultState());
 
         // Trunk
-        makeTrunk(world, blockPos.add(0, height/4, 0), radius, random, ModBlocks.OLYUM_LOG.getDefaultState());
+        makeTrunk(world, blockPos.add(0, height / 4, 0), radius, random, ModBlocks.OLYUM_LOG.getDefaultState());
 
         //Make Higher Cap
-        makeCap(world, blockPos.add(0, height/2.4, 0), radius/1.5f, random, ModBlocks.OLYUM_FUNGI_CAP.getDefaultState());
-        makeSpokes(world, blockPos.add(0, height/2.4-2, 0), radius/1.5f, random, ModBlocks.OLCRIUM.getDefaultState());
+        makeCap(world, blockPos.add(0, height / 2.4, 0), radius / 1.5f, random, ModBlocks.OLYUM_FUNGI_CAP.getDefaultState());
+        makeSpokes(world, blockPos.add(0, height / 2.4 - 2, 0), radius / 1.5f, random, ModBlocks.OLCRIUM.getDefaultState());
 
         // At the end of the method, return true to signal it has worked
         return true;

@@ -4,14 +4,9 @@ import com.google.common.collect.ImmutableList;
 import me.zenox.outlands.block.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.noise.NoiseParametersKeys;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
-
-import terrablender.api.SurfaceRuleManager;
-
-import java.util.List;
 
 public class ModSurfaceRuleData {
     private static final MaterialRules.MaterialRule OLCRIUM = makeStateRule(ModBlocks.OLCRIUM);
@@ -40,10 +35,11 @@ public class ModSurfaceRuleData {
     private static final MaterialRules.MaterialRule ICE = makeStateRule(Blocks.ICE);
     private static final MaterialRules.MaterialRule WATER = makeStateRule(Blocks.WATER);
 
-    private static MaterialRules.MaterialCondition surfaceNoiseAbove(double value) { return MaterialRules.noiseThreshold(NoiseParametersKeys.SURFACE, value / 8.25D, Double.MAX_VALUE); }
+    private static MaterialRules.MaterialCondition surfaceNoiseAbove(double value) {
+        return MaterialRules.noiseThreshold(NoiseParametersKeys.SURFACE, value / 8.25D, Double.MAX_VALUE);
+    }
 
-    public static MaterialRules.MaterialRule makeRules()
-    {
+    public static MaterialRules.MaterialRule makeRules() {
         MaterialRules.MaterialCondition above97 = MaterialRules.aboveY(YOffset.fixed(97), 2);
         MaterialRules.MaterialCondition above62 = MaterialRules.aboveY(YOffset.fixed(62), 0);
         MaterialRules.MaterialCondition above63_0 = MaterialRules.aboveY(YOffset.fixed(63), 0);
@@ -65,7 +61,7 @@ public class ModSurfaceRuleData {
 //        }
 
         builder = ImmutableList.builder();
-       // builder.addAll(List.of(SurfaceRuleManager.getDefaultSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD)));
+        // builder.addAll(List.of(SurfaceRuleManager.getDefaultSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD)));
 
         builder.add(MaterialRules.condition(MaterialRules.verticalGradient("bedrock_floor", YOffset.getBottom(), YOffset.aboveBottom(5)), BEDROCK));
 
@@ -75,8 +71,7 @@ public class ModSurfaceRuleData {
         return MaterialRules.sequence(builder.build().toArray(MaterialRules.MaterialRule[]::new));
     }
 
-    private static MaterialRules.MaterialRule makeStateRule(Block block)
-    {
+    private static MaterialRules.MaterialRule makeStateRule(Block block) {
         return MaterialRules.block(block.getDefaultState());
     }
 }

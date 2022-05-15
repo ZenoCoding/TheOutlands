@@ -1,9 +1,7 @@
 package me.zenox.outlands.block.custom;
 
-import java.util.Random;
-
-import me.zenox.outlands.world.feature.ModConfiguredFeatures;
 import me.zenox.outlands.block.ModBlocks;
+import me.zenox.outlands.world.feature.ModConfiguredFeatures;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -16,6 +14,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
+
+import java.util.Random;
 
 public class OlcriumBlock
         extends Block
