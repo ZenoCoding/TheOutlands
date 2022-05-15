@@ -1,9 +1,10 @@
-# Fabric Example Mod
+# TheOutlands
 
-## Setup
+## Description
+- A lightweight mod that adds a new biome and many features: The Outlands!
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
-
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+## Features
+- A new Biome
+- New raid-like boss
+- New blocks and ores
+- a new best armor
