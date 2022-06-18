@@ -7,17 +7,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 public class EoliflyModel extends AnimatedGeoModel<Eolifly> {
 
     @Override
-    public Identifier getModelLocation(Eolifly object) {
+    public Identifier getModelResource(Eolifly object) {
         return new Identifier(Main.MOD_ID, "geo/eolifly.geo.json");
     }
 
     @Override
-    public Identifier getTextureLocation(Eolifly object) {
+    public Identifier getTextureResource(Eolifly object) {
         return new Identifier(Main.MOD_ID, "textures/entity/eolifly.png");
     }
 
     @Override
-    public Identifier getAnimationFileLocation(Eolifly animatable) {
+    public Identifier getAnimationResource(Eolifly animatable) {
         return new Identifier(Main.MOD_ID, "animations/eolifly.animation.json");
     }
 

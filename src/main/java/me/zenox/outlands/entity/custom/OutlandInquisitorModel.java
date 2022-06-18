@@ -25,17 +25,17 @@ public class OutlandInquisitorModel extends AnimatedGeoModel<OutlandInquisitor> 
     }
 
     @Override
-    public Identifier getModelLocation(OutlandInquisitor object) {
+    public Identifier getModelResource(OutlandInquisitor object) {
         return new Identifier(Main.MOD_ID, "geo/outland_inquisitor.geo.json");
     }
 
     @Override
-    public Identifier getTextureLocation(OutlandInquisitor object) {
+    public Identifier getTextureResource(OutlandInquisitor object) {
         return new Identifier(Main.MOD_ID, "textures/entity/outland_inquisitor.png");
     }
 
     @Override
-    public Identifier getAnimationFileLocation(OutlandInquisitor animatable) {
+    public Identifier getAnimationResource(OutlandInquisitor animatable) {
         return new Identifier(Main.MOD_ID, "animations/outland_inquisitor.animation.json");
     }
 

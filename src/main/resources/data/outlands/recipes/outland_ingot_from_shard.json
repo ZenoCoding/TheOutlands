@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " # ",
+    "D#G",
     "#N#",
-    " # "
+    "G#D"
   ],
   "key": {
     "#": {
@@ -11,6 +11,9 @@
     },
     "N": {
       "item": "minecraft:netherite_ingot"
+    },
+    "D": {
+      "item": "minecraft:diamond_block"
     }
   },
   "result": {

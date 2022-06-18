@@ -4,7 +4,11 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.FlyGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
+import net.minecraft.entity.ai.pathing.BirdNavigation;
+import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.entity.passive.BeeEntity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -20,6 +24,30 @@ public class Eolifly extends PathAwareEntity implements IAnimatable {
     public Eolifly(EntityType<? extends PathAwareEntity> entityType, World world) {
         super(entityType, world);
     }
+
+    //Bird-Like Navigation
+    @Override
+    protected EntityNavigation createNavigation(World world) {
+        BirdNavigation birdNavigation = new BirdNavigation(this, world) {
+
+            @Override
+            public boolean isValidPosition(BlockPos pos) {
+                return !this.world.getBlockState(pos.down()).isAir();
+            }
+
+            @Override
+            public void tick() {
+                super.tick();
+            }
+        };
+        birdNavigation.setCanPathThroughDoors(false);
+        birdNavigation.setCanSwim(false);
+        birdNavigation.setCanEnterOpenDoors(true);
+        birdNavigation.setSpeed(3f);
+        return birdNavigation;
+    }
+
+    // Animation Controllers
 
     private <E extends IAnimatable> PlayState mainPredicate(AnimationEvent<E> event) {
         if (this.isAttacking() && !this.isDead()) {

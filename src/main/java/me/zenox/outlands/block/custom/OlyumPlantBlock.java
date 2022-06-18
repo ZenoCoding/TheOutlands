@@ -5,12 +5,11 @@ import me.zenox.outlands.world.feature.ModConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-
-import java.util.Random;
 
 public class OlyumPlantBlock extends PlantBlock implements Fertilizable {
     protected static final float field_31261 = 6.0F;

@@ -4,6 +4,7 @@ import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
@@ -12,7 +13,6 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.RandomPatchFeatureConfig;
 
-import java.util.Random;
 import java.util.function.Supplier;
 
 public class OlyumFungusBlock extends OlyumPlantBlock implements Fertilizable {

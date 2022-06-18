@@ -6,12 +6,12 @@ import me.zenox.outlands.block.ModBlocks;
 import me.zenox.outlands.util.MHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.List;
-import java.util.Random;
 
 public class MegaOlyumFungiFeature extends OlyumFungiFeature {
     public MegaOlyumFungiFeature(Codec<DefaultFeatureConfig> codec) {

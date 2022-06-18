@@ -7,7 +7,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -33,12 +32,12 @@ public class OutlandIngot extends Item {
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
 
-        tooltip.add(new TranslatableText("A mysterious ingot found rarely by defeating the outland minos.").formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
+        tooltip.add(Text.translatable("A mysterious ingot found rarely by defeating the outland minos.").formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
 
         if (Screen.hasShiftDown()) {
-            tooltip.add(new TranslatableText("Drop Chance: 25% from Outland Minos | 1% from Outland Inquisitor").formatted(Formatting.WHITE).formatted(Formatting.ITALIC));
+            tooltip.add(Text.translatable("Drop Chance: 25% from Outland Minos | 1% from Outland Inquisitor").formatted(Formatting.WHITE).formatted(Formatting.ITALIC));
         } else {
-            tooltip.add(new TranslatableText("[SHIFT] for more info").formatted(Formatting.DARK_GRAY).formatted(Formatting.ITALIC));
+            tooltip.add(Text.translatable("[SHIFT] for more info").formatted(Formatting.DARK_GRAY).formatted(Formatting.ITALIC));
         }
 
     }

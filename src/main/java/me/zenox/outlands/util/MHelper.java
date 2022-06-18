@@ -2,15 +2,15 @@ package me.zenox.outlands.util;
 
 import net.minecraft.util.math.Vec3f;
 import net.minecraft.util.math.Vec3i;
+import net.minecraft.util.math.random.Random;
 
-import java.util.Random;
 
 public class MHelper {
     private static final Vec3i[] RANDOM_OFFSETS = new Vec3i[3 * 3 * 3 - 1];
     private static final float RAD_TO_DEG = 57.295779513082320876798154814105F;
     public static final float PHI = (float) (Math.PI * (3 - Math.sqrt(5)));
     public static final float PI2 = (float) (Math.PI * 2);
-    public static final Random RANDOM = new Random();
+    public static final Random RANDOM = Random.create();
 
     public static int randRange(int min, int max, Random random) {
         return min + random.nextInt(max - min + 1);

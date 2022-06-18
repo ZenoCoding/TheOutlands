@@ -47,6 +47,7 @@
   "outlands.energy_beam_fire": "Energy Beam Firing",
 
   "enchantment.outlands.crushing": "Crushing",
+  "enchantment.outlands.crushing.description": "Induces a shockwave effect upon falling while crouching.",
 
   "death.attack.beam": "%1$s's soul was absorbed by a soul beam",
   "death.attack.beam.player": "%1$s's soul was absorbed by a soul beam whilst fighting %2$s"

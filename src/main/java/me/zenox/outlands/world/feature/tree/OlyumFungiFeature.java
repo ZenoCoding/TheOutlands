@@ -10,13 +10,13 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.List;
-import java.util.Random;
 import java.util.function.Function;
 
 public class OlyumFungiFeature extends Feature<DefaultFeatureConfig> {

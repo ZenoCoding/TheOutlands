@@ -2,23 +2,19 @@ package me.zenox.outlands.block.custom;
 
 import me.zenox.outlands.block.ModBlocks;
 import me.zenox.outlands.world.feature.ModConfiguredFeatures;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Fertilizable;
+import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 
-import java.util.Random;
-
 public class OlcriumBlock
-        extends Block
+        extends SpreadableBlock
         implements Fertilizable {
     public OlcriumBlock(AbstractBlock.Settings settings) {
         super(settings);
